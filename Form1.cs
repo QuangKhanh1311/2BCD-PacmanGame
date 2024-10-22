@@ -87,20 +87,23 @@ namespace Pacman_Game
             foreach (Control x in this.Controls)
             {
                 if(x is PictureBox)
-                    if((string)x.Tag == "coin" && x.Visible == true)
-                        if(pacman.Bounds.IntersectsWith(x.Bounds))
+                {
+                    if ((string)x.Tag == "coin" && x.Visible == true)
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
                         {
                             x.Visible = false;
                             playerScore += 1;
                         }
 
-                if ((string)x.Tag == "wall")
-                    if (pacman.Bounds.IntersectsWith(x.Bounds))
-                        GameOver("You lose!",'R');
+                    if ((string)x.Tag == "wall")
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                            GameOver("You lose!", 'R');
 
-                        if ((string)x.Tag == "ghost")
-                    if (pacman.Bounds.IntersectsWith(x.Bounds))
-                        GameOver("You lose!",'R');
+                    if ((string)x.Tag == "ghost")
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                            GameOver("You lose!", 'R');
+                }
+                    
             }
 
             MoveGhosts();
