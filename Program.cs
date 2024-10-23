@@ -16,7 +16,7 @@ namespace Pacman_Game
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameRunForm());
+            Application.Run(new GameStartForm());
         }
     }
 }

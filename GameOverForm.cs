@@ -68,6 +68,7 @@ namespace Pacman_Game
 
             this.StartPosition = FormStartPosition.Manual;
         }
+
         /// <summary>
         /// Hàm tạo 2 nút YES và NO
         /// </summary>
@@ -130,7 +131,12 @@ namespace Pacman_Game
                 btn.ForeColor = Color.White; 
             }
         }
-        public void CenterToForm(Form parentForm)
+
+        /// <summary>
+        /// Hàm thực hiện cho form thông báo căn giữa form game đang chạy
+        /// </summary>
+        /// <param name="parentForm"></param>
+        public void CenterToFormRun(Form parentForm)
         {
             this.Location = new Point(parentForm.Location.X + (parentForm.Width - this.Width) / 2, parentForm.Location.Y + (parentForm.Height - this.Height) / 2);
         }
