@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameGuideForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameGuideForm.Designer.cs">
+      <DependentUpon>GameGuideForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameOverForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameGuideForm.resx">
+      <DependentUpon>GameGuideForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameOverForm.resx">
       <DependentUpon>GameOverForm.cs</DependentUpon>
@@ -130,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Frame_border1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\z5963294203637_0e6703049499e704809bfa373ffbae46.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -169,5 +169,15 @@ namespace Pacman_Game.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z5963294203637_0e6703049499e704809bfa373ffbae46 {
+            get {
+                object obj = ResourceManager.GetObject("z5963294203637_0e6703049499e704809bfa373ffbae46", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
