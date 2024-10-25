@@ -51,7 +51,7 @@ namespace Pacman_Game
         }
 
         /// <summary>
-        /// test 345
+        /// abc
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -59,7 +59,7 @@ namespace Pacman_Game
         {
             txtScore.Text = "Score: " + playerScore;
 
-            //----------------------------
+            //----------------------s------
             // Điều hướng pacman
             //----------------------------
             if (goLeft)
