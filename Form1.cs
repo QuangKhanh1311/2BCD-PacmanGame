@@ -12,17 +12,24 @@ namespace Pacman_Game
 {
     public partial class GameRunForm : Form
     {
-        private  Point redGhostDefaultPosition;
-        private  Point yellowGhostDefaultPosition;
-        private  Point pinkGhostDefaultPosition;
+        private Point redGhostDefaultPosition;
+        private Point yellowGhostDefaultPosition;
+        private Point pinkGhostDefaultPosition;
         private Point[] wallDefaultPositions;
         private char colourType;
         private int totalCoins = 31;
         public int levelGame;
 
         bool goUp, goDown, goLeft, goRight, isGameOver;
-        int playerScore, playerSpeed, redGhostSpeed, yellowGhostSpeed, 
-            pinkGhostX, pinkGhostY,wallTop1Speed,wallTop2Speed,wallBottom1Speed, wallBottom2Speed;
+        int playerScore, playerSpeed, redGhostSpeed, yellowGhostSpeed,
+            pinkGhostX, pinkGhostY, wallTop1Speed, wallTop2Speed, wallBottom1Speed, wallBottom2Speed;
+
+        private bool isPaused = false;
+        private bool isInvincible = false;
+
+        private Timer countdownTimer;
+        private int countdownTime;
+
 
         public GameRunForm()
         {
@@ -46,6 +53,13 @@ namespace Pacman_Game
             wallDefaultPositions[1] = new Point(wallTop2.Left, wallTop2.Top);
             wallDefaultPositions[2] = new Point(wallBottom1.Left, wallBottom1.Top);
             wallDefaultPositions[3] = new Point(wallBottom2.Left, wallBottom2.Top);
+
+            //----------------------------
+            // Khởi tạo timer đếm ngược
+            //----------------------------
+            countdownTimer = new Timer();
+            countdownTimer.Interval = 1000;
+            countdownTimer.Tick += CountdownTimer_Tick;
 
             ResetGame();
         }
@@ -83,13 +97,13 @@ namespace Pacman_Game
                 pacman.Image = Properties.Resources.down;
             }
 
-            if (pacman.Left < -10) 
+            if (pacman.Left < -10)
                 pacman.Left = this.ClientSize.Width;
-            if (pacman.Left > this.ClientSize.Width) 
+            if (pacman.Left > this.ClientSize.Width)
                 pacman.Left = -10;
-            if (pacman.Top < -10) 
+            if (pacman.Top < -10)
                 pacman.Top = this.ClientSize.Height;
-            if (pacman.Top > this.ClientSize.Height) 
+            if (pacman.Top > this.ClientSize.Height)
                 pacman.Top = -10;
 
             //----------------------------
@@ -97,7 +111,7 @@ namespace Pacman_Game
             //----------------------------
             foreach (Control x in this.Controls)
             {
-                if(x is PictureBox)
+                if (x is PictureBox)
                 {
                     if ((string)x.Tag == "coin" && x.Visible == true)
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
@@ -106,21 +120,128 @@ namespace Pacman_Game
                             playerScore += 1;
                         }
 
-                    if ((string)x.Tag == "wall")
-                        if (pacman.Bounds.IntersectsWith(x.Bounds))
-                            GameOver("You lose!" , 'R');
-
-                    if ((string)x.Tag == "ghost")
+                    if ((string)x.Tag == "wall" && !isInvincible)
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
                             GameOver("You lose!", 'R');
+
+                    if ((string)x.Tag == "ghost" && !isInvincible)
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                            GameOver("You lose!", 'R');
+
+                    if ((string)x.Tag == "item" && x.Visible == true)
+                    {
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            x.Visible = false;
+                            PauseGhostsAndWalls();
+                        }
+                    }
+
+                    if ((string)x.Tag == "item1" && x.Visible == true)
+                    {
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            x.Visible = false;
+                            ActivateInvincibility(); 
+                        }
+                    }
                 }
-                    
+
             }
 
             MoveGhosts();
 
             if (playerScore == totalCoins)
-                GameOver("You win!",'G');
+                GameOver("You win!", 'G');
+        }
+
+        /// <summary>
+        /// Hàm tạm dừng chuyển động
+        /// </summary>
+        private async void PauseGhostsAndWalls()
+        {
+            if (isPaused) return;
+
+            isPaused = true; 
+
+            /// Đặt thời gian đếm ngược
+            countdownTime = 3;
+            lblCountdown.Text = "3";
+            lblCountdown.Visible = true;
+            countdownTimer.Start();
+
+            // Lưu tốc độ hiện tại
+            int originalRedGhostSpeed = redGhostSpeed;
+            int originalYellowGhostSpeed = yellowGhostSpeed;
+            int originalPinkGhostX = pinkGhostX;
+            int originalPinkGhostY = pinkGhostY;
+            int originalWallTop1Speed = wallTop1Speed;
+            int originalWallTop2Speed = wallTop2Speed;
+            int originalWallBottom1Speed = wallBottom1Speed;
+            int originalWallBottom2Speed = wallBottom2Speed;
+
+            // Đặt tốc độ về 0
+            redGhostSpeed = 0;
+            yellowGhostSpeed = 0;
+            pinkGhostX = 0;
+            pinkGhostY = 0;
+            wallTop1Speed = 0;
+            wallTop2Speed = 0;
+            wallBottom1Speed = 0;
+            wallBottom2Speed = 0;
+
+            await Task.Delay(3000);
+
+            // Khôi phục tốc độ ban đầu
+            redGhostSpeed = originalRedGhostSpeed;
+            yellowGhostSpeed = originalYellowGhostSpeed;
+            pinkGhostX = originalPinkGhostX;
+            pinkGhostY = originalPinkGhostY;
+            wallTop1Speed = originalWallTop1Speed;
+            wallTop2Speed = originalWallTop2Speed;
+            wallBottom1Speed = originalWallBottom1Speed;
+            wallBottom2Speed = originalWallBottom2Speed;
+
+            isPaused = false;
+        }
+
+        /// <summary>
+        /// Hàm hiển thị label đếm ngược
+        /// </summary>
+        private void CountdownTimer_Tick(object sender, EventArgs e)
+        {
+            countdownTime--;
+            lblCountdown.Text = countdownTime.ToString();
+
+            if (countdownTime <= 0)
+            {
+                countdownTimer.Stop();
+                lblCountdown.Visible = false; 
+                isPaused = false; 
+            }
+        }
+
+
+        /// <summary>
+        /// Hàm bất tử
+        /// </summary>
+        private async void ActivateInvincibility()
+        {
+            if (isInvincible) return;
+
+            isInvincible = true; 
+
+            countdownTime = 3;
+            lblCountdown.Text = "3"; 
+            lblCountdown.Visible = true; 
+            countdownTimer.Start();
+
+            pacman.BackColor = Color.White; 
+
+            await Task.Delay(3000);
+
+            isInvincible = false;
+            pacman.BackColor = Color.Black; 
         }
 
         /// <summary>
@@ -144,10 +265,10 @@ namespace Pacman_Game
             if (e.KeyCode == Keys.Left) goLeft = true;
             if (e.KeyCode == Keys.Right) goRight = true;
         }
-       
-       /// <summary>
-       /// Hàm thực hiện di chuyển các ghost có trong gamne
-       /// </summary>
+
+        /// <summary>
+        /// Hàm thực hiện di chuyển các ghost có trong gamne
+        /// </summary>
         private void MoveGhosts()
         {
             //----------------------------
@@ -194,8 +315,8 @@ namespace Pacman_Game
 
                         if (minDistance == distanceLeft)
                         {
-                            pinkGhostX = -pinkGhostX; 
-                            pinkGhost.Left = x.Right; 
+                            pinkGhostX = -pinkGhostX;
+                            pinkGhost.Left = x.Right;
                         }
                         else if (minDistance == distanceRight)
                         {
@@ -204,8 +325,8 @@ namespace Pacman_Game
                         }
                         else if (minDistance == distanceTop)
                         {
-                            pinkGhostY = -pinkGhostY; 
-                            pinkGhost.Top = x.Bottom; 
+                            pinkGhostY = -pinkGhostY;
+                            pinkGhost.Top = x.Bottom;
                         }
                         else if (minDistance == distanceBottom)
                         {
@@ -258,18 +379,18 @@ namespace Pacman_Game
 
             playerSpeed = 5;
             redGhostSpeed = 5;
-            yellowGhostSpeed =5;
+            yellowGhostSpeed = 5;
             pinkGhostX = 2;
             pinkGhostY = 2;
 
-            if(levelGame == 0) 
+            if (levelGame == 0)
             {
                 wallTop1Speed = 0;
                 wallTop2Speed = 0;
                 wallBottom1Speed = 0;
                 wallBottom2Speed = 0;
             }
-            else if(levelGame == 1)
+            else if (levelGame == 1)
             {
                 gateMap.Visible = false;
                 wallTop1.Left += 15;
@@ -288,7 +409,7 @@ namespace Pacman_Game
             redGhost.Location = redGhostDefaultPosition;
             yellowGhost.Location = yellowGhostDefaultPosition;
             pinkGhost.Location = pinkGhostDefaultPosition;
-           
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
@@ -309,15 +430,15 @@ namespace Pacman_Game
             gameTimer.Stop();
 
             GameOverForm gameOverForm = new GameOverForm();
-            gameOverForm.ShowGameOver(gameMessage,colourType);
+            gameOverForm.ShowGameOver(gameMessage, colourType);
             gameOverForm.CenterToFormRun(this);
             gameOverForm.ShowDialog();
-            
+
             if (gameOverForm.playAgain)
-                ResetGame(); 
+                ResetGame();
             else
-                Close(); 
-               
+                Close();
+
         }
         /// <summary>
         /// Hàm thực hiện xuất hiện form game cùng vị trí với form menu
@@ -328,5 +449,5 @@ namespace Pacman_Game
             this.Location = new Point(parentForm.Location.X, parentForm.Location.Y);
         }
     }
-   
+
 }
