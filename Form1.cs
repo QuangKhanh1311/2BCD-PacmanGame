@@ -28,6 +28,12 @@ namespace Pacman_Game
         private bool isInvincible = false;
 
         private Timer countdownTimer;
+
+        private void bigCoins2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private int countdownTime;
 
 
