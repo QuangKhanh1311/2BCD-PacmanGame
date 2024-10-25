@@ -71,6 +71,9 @@
             this.gateMap = new System.Windows.Forms.PictureBox();
             this.yellowGhost = new System.Windows.Forms.PictureBox();
             this.redGhost = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallTop2)).BeginInit();
@@ -111,6 +114,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
@@ -545,7 +551,7 @@
             // yellowGhost
             // 
             this.yellowGhost.Image = global::Pacman_Game.Properties.Resources.yellow_guy;
-            this.yellowGhost.Location = new System.Drawing.Point(472, 366);
+            this.yellowGhost.Location = new System.Drawing.Point(316, 366);
             this.yellowGhost.Name = "yellowGhost";
             this.yellowGhost.Size = new System.Drawing.Size(45, 60);
             this.yellowGhost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -563,6 +569,39 @@
             this.redGhost.TabIndex = 2;
             this.redGhost.TabStop = false;
             this.redGhost.Tag = "ghost";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Pacman_Game.Properties.Resources.coin;
+            this.pictureBox1.Location = new System.Drawing.Point(518, 38);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "bigcoin";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Pacman_Game.Properties.Resources.coin;
+            this.pictureBox2.Location = new System.Drawing.Point(458, 366);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "bigcoin";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Pacman_Game.Properties.Resources.coin;
+            this.pictureBox3.Location = new System.Drawing.Point(210, 75);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "bigcoin";
             // 
             // GameRunForm
             // 
@@ -611,6 +650,9 @@
             this.Controls.Add(this.gateMap);
             this.Controls.Add(this.yellowGhost);
             this.Controls.Add(this.redGhost);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "GameRunForm";
@@ -659,6 +701,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,6 +753,9 @@
         private System.Windows.Forms.PictureBox pictureBox37;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.PictureBox pinkGhost;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

@@ -106,6 +106,13 @@ namespace Pacman_Game
                             playerScore += 1;
                         }
 
+                    if ((string)x.Tag == "bigcoin" && x.Visible == true)
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            x.Visible = false;
+                            playerScore += 5;
+                        }
+
                     if ((string)x.Tag == "wall")
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
                             GameOver("You lose!" , 'R');
@@ -119,7 +126,7 @@ namespace Pacman_Game
 
             MoveGhosts();
 
-            if (playerScore == totalCoins)
+            if (playerScore >= totalCoins) 
                 GameOver("You win!",'G');
         }
 
