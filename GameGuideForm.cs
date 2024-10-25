@@ -391,17 +391,17 @@ namespace Pacman_Game
             showOption(options[0]);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void HowToPlay_Click(object sender, EventArgs e)
         {
             showOption(options[1]);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void HowToWin_Click(object sender, EventArgs e)
         {
             showOption(options[2]);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Mode_Click(object sender, EventArgs e)
         {
             showOption(options[3]);
         }

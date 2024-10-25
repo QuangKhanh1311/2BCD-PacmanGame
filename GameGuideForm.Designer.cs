@@ -58,7 +58,7 @@
             this.HowToPlay.TabIndex = 0;
             this.HowToPlay.Text = "Cách di chuyển";
             this.HowToPlay.UseVisualStyleBackColor = false;
-            this.HowToPlay.Click += new System.EventHandler(this.button2_Click);
+            this.HowToPlay.Click += new System.EventHandler(this.HowToPlay_Click);
             // 
             // HowToWin
             // 
@@ -71,7 +71,7 @@
             this.HowToWin.TabIndex = 0;
             this.HowToWin.Text = "Cách chiến thắng";
             this.HowToWin.UseVisualStyleBackColor = false;
-            this.HowToWin.Click += new System.EventHandler(this.button3_Click);
+            this.HowToWin.Click += new System.EventHandler(this.HowToWin_Click);
             // 
             // Mode
             // 
@@ -84,7 +84,7 @@
             this.Mode.TabIndex = 0;
             this.Mode.Text = "Các chế độ";
             this.Mode.UseVisualStyleBackColor = false;
-            this.Mode.Click += new System.EventHandler(this.button4_Click);
+            this.Mode.Click += new System.EventHandler(this.Mode_Click);
             // 
             // GameGuideForm
             // 
