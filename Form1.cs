@@ -73,7 +73,7 @@ namespace Pacman_Game
         {
             txtScore.Text = "Score: " + playerScore;
 
-            //----------------------------
+            //----------------------s------
             // Điều hướng pacman
             //----------------------------
             if (goLeft)
@@ -120,6 +120,14 @@ namespace Pacman_Game
                             playerScore += 1;
                         }
 
+                    if ((string)x.Tag == "bigcoin" && x.Visible == true)
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            x.Visible = false;
+                            playerScore += 5;
+                        }
+
+                    if ((string)x.Tag == "wall")
                     if ((string)x.Tag == "wall" && !isInvincible)
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
                             GameOver("You lose!", 'R');
@@ -242,6 +250,8 @@ namespace Pacman_Game
 
             isInvincible = false;
             pacman.BackColor = Color.Black; 
+            if (playerScore >= totalCoins) 
+                GameOver("You win!",'G');
         }
 
         /// <summary>

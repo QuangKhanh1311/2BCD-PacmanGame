@@ -79,6 +79,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.immortal1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice1)).BeginInit();
+            this.bigCoins2 = new System.Windows.Forms.PictureBox();
+            this.bigCoins3 = new System.Windows.Forms.PictureBox();
+            this.bigCoins1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallTop2)).BeginInit();
@@ -120,6 +123,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.immortal2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bigCoins2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bigCoins3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bigCoins1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
@@ -625,8 +631,7 @@
             // yellowGhost
             // 
             this.yellowGhost.Image = global::Pacman_Game.Properties.Resources.yellow_guy;
-            this.yellowGhost.Location = new System.Drawing.Point(531, 458);
-            this.yellowGhost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.yellowGhost.Location = new System.Drawing.Point(316, 366);
             this.yellowGhost.Name = "yellowGhost";
             this.yellowGhost.Size = new System.Drawing.Size(51, 75);
             this.yellowGhost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -666,6 +671,39 @@
             this.lblCountdown.Size = new System.Drawing.Size(194, 20);
             this.lblCountdown.TabIndex = 10;
             this.lblCountdown.Text = "Bảng đếm ngược thời gian";
+            // 
+            // bigCoins2
+            // 
+            this.bigCoins2.Image = global::Pacman_Game.Properties.Resources.coin;
+            this.bigCoins2.Location = new System.Drawing.Point(518, 38);
+            this.bigCoins2.Name = "bigCoins2";
+            this.bigCoins2.Size = new System.Drawing.Size(50, 50);
+            this.bigCoins2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bigCoins2.TabIndex = 4;
+            this.bigCoins2.TabStop = false;
+            this.bigCoins2.Tag = "bigcoin";
+            // 
+            // bigCoins3
+            // 
+            this.bigCoins3.Image = global::Pacman_Game.Properties.Resources.coin;
+            this.bigCoins3.Location = new System.Drawing.Point(458, 366);
+            this.bigCoins3.Name = "bigCoins3";
+            this.bigCoins3.Size = new System.Drawing.Size(50, 50);
+            this.bigCoins3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bigCoins3.TabIndex = 4;
+            this.bigCoins3.TabStop = false;
+            this.bigCoins3.Tag = "bigcoin";
+            // 
+            // bigCoins1
+            // 
+            this.bigCoins1.Image = global::Pacman_Game.Properties.Resources.coin;
+            this.bigCoins1.Location = new System.Drawing.Point(210, 75);
+            this.bigCoins1.Name = "bigCoins1";
+            this.bigCoins1.Size = new System.Drawing.Size(50, 50);
+            this.bigCoins1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bigCoins1.TabIndex = 4;
+            this.bigCoins1.TabStop = false;
+            this.bigCoins1.Tag = "bigcoin";
             // 
             // GameRunForm
             // 
@@ -719,6 +757,9 @@
             this.Controls.Add(this.gateMap);
             this.Controls.Add(this.yellowGhost);
             this.Controls.Add(this.redGhost);
+            this.Controls.Add(this.bigCoins3);
+            this.Controls.Add(this.bigCoins2);
+            this.Controls.Add(this.bigCoins1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
@@ -771,6 +812,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bigCoins2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bigCoins3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bigCoins1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.immortal2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -826,6 +870,9 @@
         private System.Windows.Forms.PictureBox immortal1;
         private System.Windows.Forms.PictureBox immortal2;
         private System.Windows.Forms.Label lblCountdown;
+        private System.Windows.Forms.PictureBox bigCoins2;
+        private System.Windows.Forms.PictureBox bigCoins3;
+        private System.Windows.Forms.PictureBox bigCoins1;
     }
 }
 

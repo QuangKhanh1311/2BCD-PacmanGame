@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,98 +7,404 @@ namespace Pacman_Game
 {
     public partial class GameGuideForm : Form
     {
-        private Panel option1 = new Panel();
-        private Panel option2 = new Panel();
+        // bốn cái option là 4 cái panel
+        private Panel option1 = new Panel(); // thông tin các con quái
+        private Panel option2 = new Panel(); // theo nội dung
         private Panel option3 = new Panel();
         private Panel option4 = new Panel();
+        private List<Panel> options = new List<Panel>();
 
+        //hàm chính để khởi chạy
         public GameGuideForm()
         {
             InitializeComponent();
+            ConfigurePanel();
             ConfigurePanel1();
             ConfigurePanel2();
-            option1.Visible = false;
-            option2.Visible = false;
-            option3.Visible = false;
-            option4.Visible = false;
+            ConfigurePanel3();
+            ConfigurePanel4();
+            foreach (var option in options)
+            {
+                option.Visible = false;
+            }
 
         }
+        private void ConfigurePanel()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Panel panel = new Panel()
+                {
+                    Size = new Size(300, 350),
+                    Location = new Point(this.ClientSize.Width - 310, 50),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    BackColor = Color.Black
+                };
+                this.Controls.Add(panel);
+                options.Add(panel);
 
+            }
+        }
         private void ConfigurePanel1()
         {
-            option1.Size = new Size(300, 350);
-            option1.Location = new Point(this.ClientSize.Width - option1.Width - 10, 50);
-            option1.BorderStyle = BorderStyle.FixedSingle;
-            option1.BackColor = Color.Black;
-            option1.BringToFront();
-            this.Controls.Add(option1);
+            //-----------------------
+            //Thông tin Pac-Man
+            //-----------------------
 
-            Label label = new Label();
-            label.Text = "Ghost màu đỏ";
-            label.Font = new Font("Arial", 12, FontStyle.Bold);
-            label.ForeColor = Color.Red;
-            label.Location = new Point(10, 10);
-            label.AutoSize = true;
-            option1.Controls.Add(label);
+            Label labelPacMan = new Label();
+            labelPacMan.Text = "Pac-Man";
+            labelPacMan.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelPacMan.ForeColor = Color.Yellow;
+            labelPacMan.Location = new Point(10, 5); 
+            labelPacMan.AutoSize = true;
+            options[0].Controls.Add(labelPacMan);
 
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Size = new Size(20, 20);
-            pictureBox.Location = new Point(label.Right + 5, 10);
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Image = Properties.Resources.red_guy;
-            option1.Controls.Add(pictureBox);
+            PictureBox pictureBoxPacMan = new PictureBox();
+            pictureBoxPacMan.Size = new Size(20, 20);
+            pictureBoxPacMan.Location = new Point(labelPacMan.Right + 5, 5);
+            pictureBoxPacMan.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxPacMan.Image = Properties.Resources.right;
+            options[0].Controls.Add(pictureBoxPacMan);
 
-            TextBox txtbox = new TextBox();
-            txtbox.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            txtbox.Location = new Point(label.Left + 5, label.Bottom + 5);
-            txtbox.BackColor = Color.Black;
-            txtbox.ForeColor = Color.White;
-            txtbox.Font = new Font("Arial", 11);
-            txtbox.Size = new Size(280, 60);
-            txtbox.Multiline = true;
-            txtbox.BorderStyle = BorderStyle.None;
-            option1.Controls.Add(txtbox);
+            TextBox txtBoxPacMan = new TextBox();
+            txtBoxPacMan.Text = "Nhân vật mà người chơi điều khiển. Rất thích các đồng xu, muốn thu thập tất cả dù phải đối đầu với các bóng ma";
+            txtBoxPacMan.Location = new Point(labelPacMan.Left + 5, labelPacMan.Bottom + 5);
+            txtBoxPacMan.BackColor = Color.Black;
+            txtBoxPacMan.ForeColor = Color.White;
+            txtBoxPacMan.Font = new Font("Arial", 11);
+            txtBoxPacMan.Size = new Size(280, 60);
+            txtBoxPacMan.Multiline = true;
+            txtBoxPacMan.BorderStyle = BorderStyle.None;
+            options[0].Controls.Add(txtBoxPacMan);
+
+            //-----------------------
+            //Thông tin Ma Đỏ
+            //-----------------------
+
+            Label labelRedGhost = new Label();
+            labelRedGhost.Text = "Ghost màu đỏ";
+            labelRedGhost.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelRedGhost.ForeColor = Color.Red;
+            labelRedGhost.Location = new Point(labelPacMan.Left, txtBoxPacMan.Bottom + 5);
+            labelRedGhost.AutoSize = true;
+            options[0].Controls.Add(labelRedGhost);
+
+            PictureBox pictureBoxRedGhost = new PictureBox();
+            pictureBoxRedGhost.Size = new Size(20, 20);
+            pictureBoxRedGhost.Location = new Point(labelRedGhost.Right + 5,txtBoxPacMan.Bottom + 1);
+            pictureBoxRedGhost.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxRedGhost.Image = Properties.Resources.red_guy;
+            options[0].Controls.Add(pictureBoxRedGhost);
+
+            TextBox txtBoxRedGhost = new TextBox();
+            txtBoxRedGhost.Text = "Đảm nhận nhiệm vụ ngăn chặn Pac-Man thoát khỏi màn chơi thông qua cánh cổng";
+            txtBoxRedGhost.Location = new Point(labelRedGhost.Left + 5, labelRedGhost.Bottom + 5);
+            txtBoxRedGhost.BackColor = Color.Black;
+            txtBoxRedGhost.ForeColor = Color.White;
+            txtBoxRedGhost.Font = new Font("Arial", 11);
+            txtBoxRedGhost.Size = new Size(280, 60);
+            txtBoxRedGhost.Multiline = true;
+            txtBoxRedGhost.BorderStyle = BorderStyle.None;
+            options[0].Controls.Add(txtBoxRedGhost);
+
+            //-----------------------
+            //Thông tin Ma Vàng
+            //-----------------------
+
+            Label labelYellowGhost = new Label();
+            labelYellowGhost.Text = "Ghost màu vàng";
+            labelYellowGhost.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelYellowGhost.ForeColor = Color.Orange;
+            labelYellowGhost.Location = new Point(labelRedGhost.Left, txtBoxRedGhost.Bottom + 1); 
+            labelYellowGhost.AutoSize = true;
+            options[0].Controls.Add(labelYellowGhost);
+
+            PictureBox pictureBoxYellowGhost = new PictureBox();
+            pictureBoxYellowGhost.Size = new Size(20, 20);
+            pictureBoxYellowGhost.Location = new Point(labelYellowGhost.Right + 5, txtBoxRedGhost.Bottom + 5);
+            pictureBoxYellowGhost.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxYellowGhost.Image = Properties.Resources.yellow_guy;
+            options[0].Controls.Add(pictureBoxYellowGhost);
+
+            TextBox txtBoxYellowGhost = new TextBox();
+            txtBoxYellowGhost.Text = "Đảm nhận nhiệm vụ ngăn chặn Pac-Man vào một trong những phòng chứa nhiều đồng xu";
+            txtBoxYellowGhost.Location = new Point(labelRedGhost.Left + 5, labelYellowGhost.Bottom + 5);
+            txtBoxYellowGhost.BackColor = Color.Black;
+            txtBoxYellowGhost.ForeColor = Color.White;
+            txtBoxYellowGhost.Font = new Font("Arial", 11);
+            txtBoxYellowGhost.Size = new Size(280, 60);
+            txtBoxYellowGhost.Multiline = true;
+            txtBoxYellowGhost.BorderStyle = BorderStyle.None;
+            options[0].Controls.Add(txtBoxYellowGhost);
+
+            //-----------------------
+            //Thông tin Ma Hồng
+            //-----------------------
+
+            Label labelPinkGhost = new Label();
+            labelPinkGhost.Text = "Ghost màu hồng";
+            labelPinkGhost.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelPinkGhost.ForeColor = Color.DarkSalmon ;
+            labelPinkGhost.Location = new Point(labelYellowGhost.Left, txtBoxYellowGhost.Bottom + 5);
+            labelPinkGhost.AutoSize = true;
+            options[0].Controls.Add(labelPinkGhost);
+
+            PictureBox pictureBoxPinkGhost = new PictureBox();
+            pictureBoxPinkGhost.Size = new Size(20, 20);
+            pictureBoxPinkGhost.Location = new Point(labelPinkGhost.Right + 5, txtBoxYellowGhost.Bottom + 5);
+            pictureBoxPinkGhost.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxPinkGhost.Image = Properties.Resources.pink_guy;
+            options[0].Controls.Add(pictureBoxPinkGhost);
+
+            TextBox txtBoxPinkGhost = new TextBox();
+            txtBoxPinkGhost.Text = "Đảm nhận nhiệm vụ tiêu diệt Pac-Man, sở hữu lối di chuyển nguy hiểm và khó đoán";
+            txtBoxPinkGhost.Location = new Point(labelRedGhost.Left + 5, labelPinkGhost.Bottom + 5);
+            txtBoxPinkGhost.BackColor = Color.Black;
+            txtBoxPinkGhost.ForeColor = Color.White;
+            txtBoxPinkGhost.Font = new Font("Arial", 11);
+            txtBoxPinkGhost.Size = new Size(280, 60);
+            txtBoxPinkGhost.Multiline = true;
+            txtBoxPinkGhost.BorderStyle = BorderStyle.None;
+            options[0].Controls.Add(txtBoxPinkGhost);
         }
 
         private void ConfigurePanel2()
         {
-            option2.Size = new Size(300, 350);
-            option2.Location = new Point(this.ClientSize.Width - option2.Width - 10, 50);
-            option2.BorderStyle = BorderStyle.FixedSingle;
-            option2.BackColor = Color.Gray; // Màu nền khác để phân biệt
-            option2.BringToFront();
-            this.Controls.Add(option2);
+            //-----------------------
+            //Di chuyển Lên
+            //-----------------------
 
-            Label label = new Label();
-            label.Text = "Ghost màu xanh";
-            label.Font = new Font("Arial", 12, FontStyle.Bold);
-            label.ForeColor = Color.Blue;
-            label.Location = new Point(10, 10);
-            label.AutoSize = true;
-            option2.Controls.Add(label);
+            Label labelUp = new Label();
+            labelUp.Text = "Di chuyển lên";
+            labelUp.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelUp.ForeColor = Color.Yellow;
+            labelUp.Location = new Point(10, 10);
+            labelUp.AutoSize = true;
+            options[1].Controls.Add(labelUp);
 
-            // Thêm các thành phần khác cho option2 như PictureBox, TextBox...
+            PictureBox pictureBoxUp = new PictureBox();
+            pictureBoxUp.Size = new Size(20, 20);
+            pictureBoxUp.Location = new Point(labelUp.Right + 5, 5);
+            pictureBoxUp.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxUp.Image = Properties.Resources.Up;
+            options[1].Controls.Add(pictureBoxUp);
+
+            TextBox txtBoxUp = new TextBox();
+            txtBoxUp.Text = "Ấn nút điều hướng lên";
+            txtBoxUp.Location = new Point(labelUp.Left + 5, labelUp.Bottom + 5);
+            txtBoxUp.BackColor = Color.Black;
+            txtBoxUp.ForeColor = Color.White;
+            txtBoxUp.Font = new Font("Arial", 11);
+            txtBoxUp.Size = new Size(280, 60);
+            txtBoxUp.Multiline = true;
+            txtBoxUp.BorderStyle = BorderStyle.None;
+            options[1].Controls.Add(txtBoxUp);
+
+            //-----------------------
+            //Di chuyển Xuống
+            //-----------------------
+
+            Label labelDown = new Label();
+            labelDown.Text = "Di chuyển xuống";
+            labelDown.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelDown.ForeColor = Color.Yellow;
+            labelDown.Location = new Point(10, txtBoxUp.Bottom + 5);
+            labelDown.AutoSize = true;
+            options[1].Controls.Add(labelDown);
+
+            PictureBox pictureBoxDown = new PictureBox();
+            pictureBoxDown.Size = new Size(20, 20);
+            pictureBoxDown.Location = new Point(labelDown.Right + 5, txtBoxUp.Bottom + 5);
+            pictureBoxDown.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxDown.Image = Properties.Resources.down;
+            options[1].Controls.Add(pictureBoxDown);
+
+            TextBox txtBoxDown = new TextBox();
+            txtBoxDown.Text = "Ấn nút điều hướng xuống";
+            txtBoxDown.Location = new Point(labelDown.Left + 5, labelDown.Bottom + 5);
+            txtBoxDown.BackColor = Color.Black;
+            txtBoxDown.ForeColor = Color.White;
+            txtBoxDown.Font = new Font("Arial", 11);
+            txtBoxDown.Size = new Size(280, 60);
+            txtBoxDown.Multiline = true;
+            txtBoxDown.BorderStyle = BorderStyle.None;
+            options[1].Controls.Add(txtBoxDown);
+
+            //-----------------------
+            //Di chuyển Trái
+            //-----------------------
+
+            Label labelLeft = new Label();
+            labelLeft.Text = "Di chuyển trái";
+            labelLeft.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelLeft.ForeColor = Color.Yellow;
+            labelLeft.Location = new Point(10, txtBoxDown.Bottom + 5);
+            labelLeft.AutoSize = true;
+            options[1].Controls.Add(labelLeft);
+
+            PictureBox pictureBoxLeft = new PictureBox();
+            pictureBoxLeft.Size = new Size(20, 20);
+            pictureBoxLeft.Location = new Point(labelLeft.Right + 5, txtBoxDown.Bottom + 5);
+            pictureBoxLeft.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxLeft.Image = Properties.Resources.left;
+            options[1].Controls.Add(pictureBoxLeft);
+
+            TextBox txtBoxLeft = new TextBox();
+            txtBoxLeft.Text = "Ấn nút điều hướng trái";
+            txtBoxLeft.Location = new Point(labelLeft.Left + 5, labelLeft.Bottom + 5);
+            txtBoxLeft.BackColor = Color.Black;
+            txtBoxLeft.ForeColor = Color.White;
+            txtBoxLeft.Font = new Font("Arial", 11);
+            txtBoxLeft.Size = new Size(280, 60);
+            txtBoxLeft.Multiline = true;
+            txtBoxLeft.BorderStyle = BorderStyle.None;
+            options[1].Controls.Add(txtBoxLeft);
+
+            //-----------------------
+            //Di chuyển Phải
+            //-----------------------
+
+            Label labelRight = new Label();
+            labelRight.Text = "Di chuyển phải";
+            labelRight.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelRight.ForeColor = Color.Yellow;
+            labelRight.Location = new Point(10, txtBoxLeft.Bottom + 5);
+            labelRight.AutoSize = true;
+            options[1].Controls.Add(labelRight);
+
+            PictureBox pictureBoxRight = new PictureBox();
+            pictureBoxRight.Size = new Size(20, 20);
+            pictureBoxRight.Location = new Point(labelRight.Right + 5, txtBoxLeft.Bottom + 5);
+            pictureBoxRight.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxRight.Image = Properties.Resources.right;
+            options[1].Controls.Add(pictureBoxRight);
+
+            TextBox txtBoxRight = new TextBox();
+            txtBoxRight.Text = "Ấn nút điều hướng phải";
+            txtBoxRight.Location = new Point(labelRight.Left + 5, labelRight.Bottom + 5);
+            txtBoxRight.BackColor = Color.Black;
+            txtBoxRight.ForeColor = Color.White;
+            txtBoxRight.Font = new Font("Arial", 11);
+            txtBoxRight.Size = new Size(280, 60);
+            txtBoxRight.Multiline = true;
+            txtBoxRight.BorderStyle = BorderStyle.None;
+            options[1].Controls.Add(txtBoxRight);
         }
 
+        private void ConfigurePanel3()
+        {
+            //-----------------------
+            //Cách chiến thắng
+            //-----------------------
+
+            Label labelWin = new Label();
+            labelWin.Text = "Cách chiến thắng";
+            labelWin.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelWin.ForeColor = Color.Yellow;
+            labelWin.Location = new Point(10, 10);
+            labelWin.AutoSize = true;
+            options[2].Controls.Add(labelWin);
+
+            PictureBox pictureBoxWin = new PictureBox();
+            pictureBoxWin.Size = new Size(20, 20);
+            pictureBoxWin.Location = new Point(labelWin.Right + 5, 5);
+            pictureBoxWin.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxWin.Image = Properties.Resources.coin;
+            options[2].Controls.Add(pictureBoxWin);
+
+            TextBox txtBoxWin = new TextBox();
+            txtBoxWin.Text = "Có tổng cộng 31 đồng xu (coins) nhỏ rải rác khắp map tương ứng với 1 điểm và 3 đồng xu to tương ứng với 5 điểm được canh giữ bởi các Ghost. Mục tiêu của người chơi là kiếm đủ 31 điểm hoặc thu thập hết xu nhỏ để có thể chiến thắng";
+            txtBoxWin.Location = new Point(labelWin.Left + 5, labelWin.Bottom + 5);
+            txtBoxWin.BackColor = Color.Black;
+            txtBoxWin.ForeColor = Color.White;
+            txtBoxWin.Font = new Font("Arial", 11);
+            txtBoxWin.Size = new Size(280, 150);
+            txtBoxWin.Multiline = true;
+            txtBoxWin.BorderStyle = BorderStyle.None;
+            options[2].Controls.Add(txtBoxWin);
+        }
+
+        private void ConfigurePanel4()
+        {
+            //-----------------------
+            //Chế độ Tân binh
+            //-----------------------
+
+            Label labelBeginner = new Label();
+            labelBeginner.Text = "Chế độ Tân binh";
+            labelBeginner.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelBeginner.ForeColor = Color.Yellow;
+            labelBeginner.Location = new Point(10, 10);
+            labelBeginner.AutoSize = true;
+            options[3].Controls.Add(labelBeginner);
+
+            //PictureBox pictureBoxBeginner = new PictureBox();
+            //pictureBoxWin.Size = new Size(20, 20);
+            //pictureBoxWin.Location = new Point(labelWin.Right + 5, 5);
+            //pictureBoxWin.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pictureBoxWin.Image = Properties.Resources.coin;
+            //options[2].Controls.Add(pictureBoxWin);
+
+            TextBox txtBoxBeginner = new TextBox();
+            txtBoxBeginner.Text = "Chế độ Tân binh sẽ mang đến trải nghiệm thu thập đồng xu cơ bản, giúp người chơi làm quen với mọi điều trong game. Không có gì phải vội – hãy cẩn thận né tránh các Ghost và thu thập đồng xu để hoàn thành thử thách";
+            txtBoxBeginner.Location = new Point(labelBeginner.Left + 5, labelBeginner.Bottom + 5);
+            txtBoxBeginner.BackColor = Color.Black;
+            txtBoxBeginner.ForeColor = Color.White;
+            txtBoxBeginner.Font = new Font("Arial", 11);
+            txtBoxBeginner.Size = new Size(280, 120);
+            txtBoxBeginner.Multiline = true;
+            txtBoxBeginner.BorderStyle = BorderStyle.None;
+            options[3].Controls.Add(txtBoxBeginner);
+
+            Label labelExpert = new Label();
+            labelExpert.Text = "Chế độ Cao thủ";
+            labelExpert.Font = new Font("Arial", 12, FontStyle.Bold);
+            labelExpert.ForeColor = Color.Yellow;
+            labelExpert.Location = new Point(10, txtBoxBeginner.Bottom + 5);
+            labelExpert.AutoSize = true;
+            options[3].Controls.Add(labelExpert);
+
+            TextBox txtBoxExpert = new TextBox();
+            txtBoxExpert.Text = "Chế độ Thử thách sẽ mở ra khi người chơi hoàn thành Chế độ Tân binh! Mọi thứ diễn ra bình thường cho đến khi người chơi đạt 25 điểm. Từ đó, các chướng ngại vật sẽ bắt đầu di chuyển, gây khó khăn cho người chơi trong hành trình thu thập các đồng xu";
+            txtBoxExpert.Location = new Point(labelExpert.Left + 5, labelExpert.Bottom + 5);
+            txtBoxExpert.BackColor = Color.Black;
+            txtBoxExpert.ForeColor = Color.White;
+            txtBoxExpert.Font = new Font("Arial", 11);
+            txtBoxExpert.Size = new Size(280, 120);
+            txtBoxExpert.Multiline = true;
+            txtBoxExpert.BorderStyle = BorderStyle.None;
+            options[3].Controls.Add(txtBoxExpert);
+        }
 
         private void showOption(Panel optionType)
         {
-            option1.Visible = false;
-            option2.Visible = false;
-            option3.Visible = false;
-            option4.Visible = false;
+            foreach (var option in options)
+            {
+                option.Visible = false;
+            }
 
             optionType.Visible = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CharInfor_Click(object sender, EventArgs e)
         {
-            showOption(option1);
+            showOption(options[0]);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void HowToPlay_Click(object sender, EventArgs e)
         {
-            showOption(option2);
+            showOption(options[1]);
         }
+
+        private void HowToWin_Click(object sender, EventArgs e)
+        {
+            showOption(options[2]);
+        }
+
+        private void Mode_Click(object sender, EventArgs e)
+        {
+            showOption(options[3]);
+        }
+
     }
 }

@@ -28,35 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CharInfor = new System.Windows.Forms.Button();
+            this.HowToPlay = new System.Windows.Forms.Button();
+            this.HowToWin = new System.Windows.Forms.Button();
+            this.Mode = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // CharInfor
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 159);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 61);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Thông tin các nhân vật";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CharInfor.BackColor = System.Drawing.Color.Black;
+            this.CharInfor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CharInfor.ForeColor = System.Drawing.Color.White;
+            this.CharInfor.Location = new System.Drawing.Point(12, 87);
+            this.CharInfor.Name = "CharInfor";
+            this.CharInfor.Size = new System.Drawing.Size(198, 61);
+            this.CharInfor.TabIndex = 0;
+            this.CharInfor.Text = "Thông tin các nhân vật";
+            this.CharInfor.UseVisualStyleBackColor = false;
+            this.CharInfor.Click += new System.EventHandler(this.CharInfor_Click);
             // 
-            // button2
+            // HowToPlay
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(198, 61);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Thông tin các nhân vật";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.HowToPlay.BackColor = System.Drawing.Color.Black;
+            this.HowToPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HowToPlay.ForeColor = System.Drawing.Color.White;
+            this.HowToPlay.Location = new System.Drawing.Point(12, 181);
+            this.HowToPlay.Name = "HowToPlay";
+            this.HowToPlay.Size = new System.Drawing.Size(198, 61);
+            this.HowToPlay.TabIndex = 0;
+            this.HowToPlay.Text = "Cách di chuyển";
+            this.HowToPlay.UseVisualStyleBackColor = false;
+            this.HowToPlay.Click += new System.EventHandler(this.HowToPlay_Click);
+            // 
+            // HowToWin
+            // 
+            this.HowToWin.BackColor = System.Drawing.Color.Black;
+            this.HowToWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HowToWin.ForeColor = System.Drawing.Color.White;
+            this.HowToWin.Location = new System.Drawing.Point(12, 282);
+            this.HowToWin.Name = "HowToWin";
+            this.HowToWin.Size = new System.Drawing.Size(198, 61);
+            this.HowToWin.TabIndex = 0;
+            this.HowToWin.Text = "Cách chiến thắng";
+            this.HowToWin.UseVisualStyleBackColor = false;
+            this.HowToWin.Click += new System.EventHandler(this.HowToWin_Click);
+            // 
+            // Mode
+            // 
+            this.Mode.BackColor = System.Drawing.Color.Black;
+            this.Mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Mode.ForeColor = System.Drawing.Color.White;
+            this.Mode.Location = new System.Drawing.Point(12, 387);
+            this.Mode.Name = "Mode";
+            this.Mode.Size = new System.Drawing.Size(198, 61);
+            this.Mode.TabIndex = 0;
+            this.Mode.Text = "Các chế độ";
+            this.Mode.UseVisualStyleBackColor = false;
+            this.Mode.Click += new System.EventHandler(this.Mode_Click);
             // 
             // GameGuideForm
             // 
@@ -64,9 +92,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(682, 553);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Mode);
+            this.Controls.Add(this.HowToWin);
+            this.Controls.Add(this.HowToPlay);
+            this.Controls.Add(this.CharInfor);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "GameGuideForm";
             this.Text = "GameGuideForm";
             this.ResumeLayout(false);
@@ -75,8 +107,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CharInfor;
+        private System.Windows.Forms.Button HowToPlay;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button HowToWin;
+        private System.Windows.Forms.Button Mode;
     }
 }
