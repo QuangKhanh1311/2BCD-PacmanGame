@@ -74,7 +74,7 @@
             this.gateMap = new System.Windows.Forms.PictureBox();
             this.yellowGhost = new System.Windows.Forms.PictureBox();
             this.redGhost = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.immortal2 = new System.Windows.Forms.PictureBox();
             this.lblCountdown = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.immortal1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice2)).BeginInit();
@@ -119,7 +119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.immortal2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
@@ -646,16 +646,16 @@
             this.redGhost.TabStop = false;
             this.redGhost.Tag = "ghost";
             // 
-            // pictureBox1
+            // immortal2
             // 
-            this.pictureBox1.Image = global::Pacman_Game.Properties.Resources.immortal;
-            this.pictureBox1.Location = new System.Drawing.Point(654, 96);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 31);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "item1";
+            this.immortal2.Image = global::Pacman_Game.Properties.Resources.immortal;
+            this.immortal2.Location = new System.Drawing.Point(654, 96);
+            this.immortal2.Name = "immortal2";
+            this.immortal2.Size = new System.Drawing.Size(28, 31);
+            this.immortal2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.immortal2.TabIndex = 9;
+            this.immortal2.TabStop = false;
+            this.immortal2.Tag = "item1";
             // 
             // lblCountdown
             // 
@@ -674,7 +674,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(767, 691);
             this.Controls.Add(this.lblCountdown);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.immortal2);
             this.Controls.Add(this.immortal1);
             this.Controls.Add(this.ice2);
             this.Controls.Add(this.ice1);
@@ -771,7 +771,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.immortal2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -824,7 +824,7 @@
         private System.Windows.Forms.PictureBox ice1;
         private System.Windows.Forms.PictureBox ice2;
         private System.Windows.Forms.PictureBox immortal1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox immortal2;
         private System.Windows.Forms.Label lblCountdown;
     }
 }
