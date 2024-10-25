@@ -51,7 +51,7 @@ namespace Pacman_Game
         }
 
         /// <summary>
-        /// abc
+        /// for1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -338,5 +338,5 @@ namespace Pacman_Game
    
 }
 /*
-test 2
+for2
 */
