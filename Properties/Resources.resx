@@ -154,4 +154,7 @@
   <data name="z5963294203637_0e6703049499e704809bfa373ffbae46" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z5963294203637_0e6703049499e704809bfa373ffbae46.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AllDirect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AllDirect.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
