@@ -171,7 +171,7 @@ namespace Pacman_Game
         private void ConfigurePanel2()
         {
             //-----------------------
-            //Di chuyển Lên
+            //Di chuyển
             //-----------------------
 
             Label labelUp = new Label();
@@ -184,9 +184,9 @@ namespace Pacman_Game
 
             PictureBox pictureBoxUp = new PictureBox();
             pictureBoxUp.Size = new Size(20, 20);
-            pictureBoxUp.Location = new Point(labelUp.Right + 5, 5);
+            pictureBoxUp.Location = new Point(labelUp.Right + 5, 6);
             pictureBoxUp.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxUp.Image = Properties.Resources.Up;
+            pictureBoxUp.Image = Properties.Resources.AllDirect;
             options[1].Controls.Add(pictureBoxUp);
 
             TextBox txtBoxUp = new TextBox();
@@ -200,95 +200,6 @@ namespace Pacman_Game
             txtBoxUp.BorderStyle = BorderStyle.None;
             options[1].Controls.Add(txtBoxUp);
 
-            //-----------------------
-            //Di chuyển Xuống
-            //-----------------------
-
-            Label labelDown = new Label();
-            labelDown.Text = "Di chuyển xuống";
-            labelDown.Font = new Font("Arial", 12, FontStyle.Bold);
-            labelDown.ForeColor = Color.Yellow;
-            labelDown.Location = new Point(10, txtBoxUp.Bottom + 5);
-            labelDown.AutoSize = true;
-            options[1].Controls.Add(labelDown);
-
-            PictureBox pictureBoxDown = new PictureBox();
-            pictureBoxDown.Size = new Size(20, 20);
-            pictureBoxDown.Location = new Point(labelDown.Right + 5, txtBoxUp.Bottom + 5);
-            pictureBoxDown.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxDown.Image = Properties.Resources.down;
-            options[1].Controls.Add(pictureBoxDown);
-
-            TextBox txtBoxDown = new TextBox();
-            txtBoxDown.Text = "Ấn nút điều hướng xuống";
-            txtBoxDown.Location = new Point(labelDown.Left + 5, labelDown.Bottom + 5);
-            txtBoxDown.BackColor = Color.Black;
-            txtBoxDown.ForeColor = Color.White;
-            txtBoxDown.Font = new Font("Arial", 11);
-            txtBoxDown.Size = new Size(280, 60);
-            txtBoxDown.Multiline = true;
-            txtBoxDown.BorderStyle = BorderStyle.None;
-            options[1].Controls.Add(txtBoxDown);
-
-            //-----------------------
-            //Di chuyển Trái
-            //-----------------------
-
-            Label labelLeft = new Label();
-            labelLeft.Text = "Di chuyển trái";
-            labelLeft.Font = new Font("Arial", 12, FontStyle.Bold);
-            labelLeft.ForeColor = Color.Yellow;
-            labelLeft.Location = new Point(10, txtBoxDown.Bottom + 5);
-            labelLeft.AutoSize = true;
-            options[1].Controls.Add(labelLeft);
-
-            PictureBox pictureBoxLeft = new PictureBox();
-            pictureBoxLeft.Size = new Size(20, 20);
-            pictureBoxLeft.Location = new Point(labelLeft.Right + 5, txtBoxDown.Bottom + 5);
-            pictureBoxLeft.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxLeft.Image = Properties.Resources.left;
-            options[1].Controls.Add(pictureBoxLeft);
-
-            TextBox txtBoxLeft = new TextBox();
-            txtBoxLeft.Text = "Ấn nút điều hướng trái";
-            txtBoxLeft.Location = new Point(labelLeft.Left + 5, labelLeft.Bottom + 5);
-            txtBoxLeft.BackColor = Color.Black;
-            txtBoxLeft.ForeColor = Color.White;
-            txtBoxLeft.Font = new Font("Arial", 11);
-            txtBoxLeft.Size = new Size(280, 60);
-            txtBoxLeft.Multiline = true;
-            txtBoxLeft.BorderStyle = BorderStyle.None;
-            options[1].Controls.Add(txtBoxLeft);
-
-            //-----------------------
-            //Di chuyển Phải
-            //-----------------------
-
-            Label labelRight = new Label();
-            labelRight.Text = "Di chuyển phải";
-            labelRight.Font = new Font("Arial", 12, FontStyle.Bold);
-            labelRight.ForeColor = Color.Yellow;
-            labelRight.Location = new Point(10, txtBoxLeft.Bottom + 5);
-            labelRight.AutoSize = true;
-            options[1].Controls.Add(labelRight);
-
-            PictureBox pictureBoxRight = new PictureBox();
-            pictureBoxRight.Size = new Size(20, 20);
-            pictureBoxRight.Location = new Point(labelRight.Right + 5, txtBoxLeft.Bottom + 5);
-            pictureBoxRight.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBoxRight.Image = Properties.Resources.right;
-            options[1].Controls.Add(pictureBoxRight);
-
-            TextBox txtBoxRight = new TextBox();
-            txtBoxRight.Text = "Ấn nút điều hướng phải";
-            txtBoxRight.Location = new Point(labelRight.Left + 5, labelRight.Bottom + 5);
-            txtBoxRight.BackColor = Color.Black;
-            txtBoxRight.ForeColor = Color.White;
-            txtBoxRight.Font = new Font("Arial", 11);
-            txtBoxRight.Size = new Size(280, 60);
-            txtBoxRight.Multiline = true;
-            txtBoxRight.BorderStyle = BorderStyle.None;
-            options[1].Controls.Add(txtBoxRight);
         }
 
         private void ConfigurePanel3()
@@ -339,11 +250,11 @@ namespace Pacman_Game
             options[3].Controls.Add(labelBeginner);
 
             //PictureBox pictureBoxBeginner = new PictureBox();
-            //pictureBoxWin.Size = new Size(20, 20);
-            //pictureBoxWin.Location = new Point(labelWin.Right + 5, 5);
-            //pictureBoxWin.SizeMode = PictureBoxSizeMode.StretchImage;
-            //pictureBoxWin.Image = Properties.Resources.coin;
-            //options[2].Controls.Add(pictureBoxWin);
+            //pictureBoxBeginner.Size = new Size(20, 20);
+            //pictureBoxBeginner.Location = new Point(labelBeginner.Right + 2, 9);
+            //pictureBoxBeginner.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pictureBoxBeginner.Image = Properties.Resources.heart;
+            //options[3].Controls.Add(pictureBoxBeginner);
 
             TextBox txtBoxBeginner = new TextBox();
             txtBoxBeginner.Text = "Chế độ Tân binh sẽ mang đến trải nghiệm thu thập đồng xu cơ bản, giúp người chơi làm quen với mọi điều trong game. Không có gì phải vội – hãy cẩn thận né tránh các Ghost và thu thập đồng xu để hoàn thành thử thách";
@@ -363,6 +274,13 @@ namespace Pacman_Game
             labelExpert.Location = new Point(10, txtBoxBeginner.Bottom + 5);
             labelExpert.AutoSize = true;
             options[3].Controls.Add(labelExpert);
+
+            //PictureBox pictureBoxExpert = new PictureBox();
+            //pictureBoxExpert.Size = new Size(20, 20);
+            //pictureBoxExpert.Location = new Point(labelExpert.Right + 2, txtBoxBeginner.Bottom + 9);
+            //pictureBoxExpert.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pictureBoxExpert.Image = Properties.Resources.skull;
+            //options[3].Controls.Add(pictureBoxExpert);
 
             TextBox txtBoxExpert = new TextBox();
             txtBoxExpert.Text = "Chế độ Thử thách sẽ mở ra khi người chơi hoàn thành Chế độ Tân binh! Mọi thứ diễn ra bình thường cho đến khi người chơi đạt 25 điểm. Từ đó, các chướng ngại vật sẽ bắt đầu di chuyển, gây khó khăn cho người chơi trong hành trình thu thập các đồng xu";

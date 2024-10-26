@@ -164,5 +164,8 @@
   <ItemGroup>
     <None Include="Resources\winnerSound.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AllDirect.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
