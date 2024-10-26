@@ -40,11 +40,11 @@ namespace Pacman_Game
         public GameRunForm()
         {
             InitializeComponent();
-            coinSound = new SoundPlayer("coins_music.wav");
-            winnerSound = new SoundPlayer("winnerSound.wav");
-            itemSound = new SoundPlayer("itemSound.wav");
-            gameSound = new SoundPlayer("gameSound.wav");
-            gameOverSound = new SoundPlayer("gameOverSound.wav");
+            coinSound = new SoundPlayer(Properties.Resources.coins_music);
+            winnerSound = new SoundPlayer(Properties.Resources.winnerSound);
+            itemSound = new SoundPlayer(Properties.Resources.itemSound);
+            gameSound = new SoundPlayer(Properties.Resources.gameSound);
+            gameOverSound = new SoundPlayer(Properties.Resources.gameOverSound);
 
             gameSound.PlayLooping();
         }

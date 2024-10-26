@@ -149,5 +149,20 @@
   <ItemGroup>
     <None Include="Resources\immortal.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coins_music.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameOverSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\itemSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\winnerSound.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
