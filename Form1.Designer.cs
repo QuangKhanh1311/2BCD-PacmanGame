@@ -32,7 +32,6 @@
             this.txtScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.immortal1 = new System.Windows.Forms.PictureBox();
-            this.ice2 = new System.Windows.Forms.PictureBox();
             this.ice1 = new System.Windows.Forms.PictureBox();
             this.wallBottom1 = new System.Windows.Forms.PictureBox();
             this.wallBottom2 = new System.Windows.Forms.PictureBox();
@@ -74,13 +73,12 @@
             this.gateMap = new System.Windows.Forms.PictureBox();
             this.yellowGhost = new System.Windows.Forms.PictureBox();
             this.redGhost = new System.Windows.Forms.PictureBox();
-            this.immortal2 = new System.Windows.Forms.PictureBox();
+            this.immortal = new System.Windows.Forms.PictureBox();
             this.lblCountdown = new System.Windows.Forms.Label();
             this.bigCoins2 = new System.Windows.Forms.PictureBox();
             this.bigCoins3 = new System.Windows.Forms.PictureBox();
             this.bigCoins1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.immortal1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ice2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom2)).BeginInit();
@@ -122,7 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.immortal2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.immortal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigCoins2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigCoins3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigCoins1)).BeginInit();
@@ -146,7 +144,6 @@
             // 
             // immortal1
             // 
-            this.immortal1.Image = global::Pacman_Game.Properties.Resources.immortal;
             this.immortal1.Location = new System.Drawing.Point(72, 374);
             this.immortal1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.immortal1.Name = "immortal1";
@@ -155,18 +152,6 @@
             this.immortal1.TabIndex = 8;
             this.immortal1.TabStop = false;
             this.immortal1.Tag = "item1";
-            // 
-            // ice2
-            // 
-            this.ice2.Image = global::Pacman_Game.Properties.Resources.ice;
-            this.ice2.Location = new System.Drawing.Point(283, 130);
-            this.ice2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ice2.Name = "ice2";
-            this.ice2.Size = new System.Drawing.Size(25, 25);
-            this.ice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ice2.TabIndex = 7;
-            this.ice2.TabStop = false;
-            this.ice2.Tag = "item";
             // 
             // ice1
             // 
@@ -616,27 +601,29 @@
             this.redGhost.TabStop = false;
             this.redGhost.Tag = "ghost";
             // 
-            // immortal2
+            // immortal
             // 
-            this.immortal2.Image = global::Pacman_Game.Properties.Resources.immortal;
-            this.immortal2.Location = new System.Drawing.Point(581, 77);
-            this.immortal2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.immortal2.Name = "immortal2";
-            this.immortal2.Size = new System.Drawing.Size(25, 25);
-            this.immortal2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.immortal2.TabIndex = 9;
-            this.immortal2.TabStop = false;
-            this.immortal2.Tag = "item1";
+            this.immortal.Image = global::Pacman_Game.Properties.Resources.immortal;
+            this.immortal.Location = new System.Drawing.Point(581, 77);
+            this.immortal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.immortal.Name = "immortal";
+            this.immortal.Size = new System.Drawing.Size(25, 25);
+            this.immortal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.immortal.TabIndex = 9;
+            this.immortal.TabStop = false;
+            this.immortal.Tag = "item1";
             // 
             // lblCountdown
             // 
             this.lblCountdown.AutoSize = true;
+            this.lblCountdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCountdown.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblCountdown.Location = new System.Drawing.Point(19, 185);
+            this.lblCountdown.Location = new System.Drawing.Point(278, 10);
             this.lblCountdown.Name = "lblCountdown";
-            this.lblCountdown.Size = new System.Drawing.Size(162, 16);
+            this.lblCountdown.Size = new System.Drawing.Size(242, 22);
             this.lblCountdown.TabIndex = 10;
             this.lblCountdown.Text = "Bảng đếm ngược thời gian";
+            this.lblCountdown.Visible = false;
             // 
             // bigCoins2
             // 
@@ -649,7 +636,6 @@
             this.bigCoins2.TabIndex = 4;
             this.bigCoins2.TabStop = false;
             this.bigCoins2.Tag = "bigcoin";
-            this.bigCoins2.Click += new System.EventHandler(this.bigCoins2_Click);
             // 
             // bigCoins3
             // 
@@ -684,9 +670,8 @@
             this.Controls.Add(this.yellowGhost);
             this.Controls.Add(this.bigCoins1);
             this.Controls.Add(this.lblCountdown);
-            this.Controls.Add(this.immortal2);
+            this.Controls.Add(this.immortal);
             this.Controls.Add(this.immortal1);
-            this.Controls.Add(this.ice2);
             this.Controls.Add(this.ice1);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.wallBottom1);
@@ -739,7 +724,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pacman_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Pacman_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.immortal1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ice2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom2)).EndInit();
@@ -781,7 +765,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gateMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yellowGhost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.redGhost)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.immortal2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.immortal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigCoins2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigCoins3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigCoins1)).EndInit();
@@ -835,9 +819,8 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.PictureBox pinkGhost;
         private System.Windows.Forms.PictureBox ice1;
-        private System.Windows.Forms.PictureBox ice2;
         private System.Windows.Forms.PictureBox immortal1;
-        private System.Windows.Forms.PictureBox immortal2;
+        private System.Windows.Forms.PictureBox immortal;
         private System.Windows.Forms.Label lblCountdown;
         private System.Windows.Forms.PictureBox bigCoins2;
         private System.Windows.Forms.PictureBox bigCoins3;

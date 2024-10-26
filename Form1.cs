@@ -4,14 +4,22 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Pacman_Game
 {
     public partial class GameRunForm : Form
     {
+        private SoundPlayer coinSound;
+        private SoundPlayer winnerSound;
+        private SoundPlayer itemSound;
+        private SoundPlayer gameSound;
+        private SoundPlayer gameOverSound;
+
         private Point redGhostDefaultPosition;
         private Point yellowGhostDefaultPosition;
         private Point pinkGhostDefaultPosition;
@@ -22,24 +30,23 @@ namespace Pacman_Game
 
         bool goUp, goDown, goLeft, goRight, isGameOver;
         int playerScore, playerSpeed, redGhostSpeed, yellowGhostSpeed,
-            pinkGhostX, pinkGhostY, wallTop1Speed, wallTop2Speed, wallBottom1Speed, wallBottom2Speed;
+            pinkGhostX, pinkGhostY, wallTop1Speed, wallTop2Speed, 
+            wallBottom1Speed, wallBottom2Speed;
 
         private bool isPaused = false;
         private bool isInvincible = false;
-
         private Timer countdownTimer;
-
-        private void bigCoins2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private int countdownTime;
-
-
         public GameRunForm()
         {
             InitializeComponent();
+            coinSound = new SoundPlayer("coins_music.wav");
+            winnerSound = new SoundPlayer("winnerSound.wav");
+            itemSound = new SoundPlayer("itemSound.wav");
+            gameSound = new SoundPlayer("gameSound.wav");
+            gameOverSound = new SoundPlayer("gameOverSound.wav");
+
+            gameSound.PlayLooping();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -61,7 +68,7 @@ namespace Pacman_Game
             wallDefaultPositions[3] = new Point(wallBottom2.Left, wallBottom2.Top);
 
             //----------------------------
-            // Khởi tạo timer đếm ngược
+            // Khởi tạo timer đếm ngược khi ăn item
             //----------------------------
             countdownTimer = new Timer();
             countdownTimer.Interval = 1000;
@@ -124,6 +131,7 @@ namespace Pacman_Game
                         {
                             x.Visible = false;
                             playerScore += 1;
+                            coinSound.Play();
                         }
 
                     if ((string)x.Tag == "bigcoin" && x.Visible == true)
@@ -131,12 +139,13 @@ namespace Pacman_Game
                         {
                             x.Visible = false;
                             playerScore += 5;
+                            coinSound.Play();
                         }
 
-                    if ((string)x.Tag == "wall")
                     if ((string)x.Tag == "wall" && !isInvincible)
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
                             GameOver("You lose!", 'R');
+                            
 
                     if ((string)x.Tag == "ghost" && !isInvincible)
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
@@ -146,6 +155,7 @@ namespace Pacman_Game
                     {
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
                         {
+                            itemSound.Play();   
                             x.Visible = false;
                             PauseGhostsAndWalls();
                         }
@@ -155,6 +165,7 @@ namespace Pacman_Game
                     {
                         if (pacman.Bounds.IntersectsWith(x.Bounds))
                         {
+                            itemSound.Play();
                             x.Visible = false;
                             ActivateInvincibility(); 
                         }
@@ -170,21 +181,22 @@ namespace Pacman_Game
         }
 
         /// <summary>
-        /// Hàm tạm dừng chuyển động
+        /// Hàm tạm dừng chuyển động khi ăn item đóng băng
         /// </summary>
         private async void PauseGhostsAndWalls()
         {
             if (isPaused) return;
 
-            isPaused = true; 
-
-            /// Đặt thời gian đếm ngược
+            isPaused = true;
             countdownTime = 3;
-            lblCountdown.Text = "3";
-            lblCountdown.Visible = true;
+
+            UpdateCountdownLabel('f', "Thời gian đóng băng còn lại: ", countdownTime);
+
             countdownTimer.Start();
 
-            // Lưu tốc độ hiện tại
+            //----------------------------
+            // Lưu tốc độ của các đối tượng
+            //----------------------------
             int originalRedGhostSpeed = redGhostSpeed;
             int originalYellowGhostSpeed = yellowGhostSpeed;
             int originalPinkGhostX = pinkGhostX;
@@ -194,7 +206,9 @@ namespace Pacman_Game
             int originalWallBottom1Speed = wallBottom1Speed;
             int originalWallBottom2Speed = wallBottom2Speed;
 
-            // Đặt tốc độ về 0
+            //----------------------------
+            // Reset về 0
+            //----------------------------
             redGhostSpeed = 0;
             yellowGhostSpeed = 0;
             pinkGhostX = 0;
@@ -206,7 +220,9 @@ namespace Pacman_Game
 
             await Task.Delay(3000);
 
-            // Khôi phục tốc độ ban đầu
+            //----------------------------
+            //Trả về tốc độ ban đầu
+            //----------------------------
             redGhostSpeed = originalRedGhostSpeed;
             yellowGhostSpeed = originalYellowGhostSpeed;
             pinkGhostX = originalPinkGhostX;
@@ -220,24 +236,24 @@ namespace Pacman_Game
         }
 
         /// <summary>
-        /// Hàm hiển thị label đếm ngược
+        /// Hàm hiển thị thông báo đếm ngược
         /// </summary>
         private void CountdownTimer_Tick(object sender, EventArgs e)
         {
             countdownTime--;
-            lblCountdown.Text = countdownTime.ToString();
-
+            if(isInvincible) 
+                UpdateCountdownLabel('f',"Thời gian bất tử còn lại: ", countdownTime);
+            else
+                UpdateCountdownLabel('f', "Thời gian đóng băng còn lại: ", countdownTime);
             if (countdownTime <= 0)
             {
                 countdownTimer.Stop();
-                lblCountdown.Visible = false; 
                 isPaused = false; 
             }
         }
 
-
         /// <summary>
-        /// Hàm bất tử
+        /// Hàm thiết lập item bất tử
         /// </summary>
         private async void ActivateInvincibility()
         {
@@ -246,8 +262,7 @@ namespace Pacman_Game
             isInvincible = true; 
 
             countdownTime = 3;
-            lblCountdown.Text = "3"; 
-            lblCountdown.Visible = true; 
+            UpdateCountdownLabel('i', "Thời gian bất tử còn lại: ", countdownTime); 
             countdownTimer.Start();
 
             pacman.BackColor = Color.White; 
@@ -258,6 +273,27 @@ namespace Pacman_Game
             pacman.BackColor = Color.Black; 
             if (playerScore >= totalCoins) 
                 GameOver("You win!",'G');
+        }
+
+        /// <summary>
+        /// Hàm thực hiện xuất thông báo khi người chơi ăn được các item
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="text"></param>
+        /// <param name="coudowntTime"></param>
+        void UpdateCountdownLabel(char type, string text, int coudowntTime)
+        {
+
+            lblCountdown.Text = text + countdownTime;
+            lblCountdown.BorderStyle = BorderStyle.FixedSingle;
+            lblCountdown.BackColor = Color.White;
+            lblCountdown.ForeColor = Color.Blue;
+            if(isInvincible)
+                lblCountdown.Location = new Point((this.ClientSize.Width - lblCountdown.Width) / 2, 20);
+            else
+                lblCountdown.Location = new Point((this.ClientSize.Width - lblCountdown.Width) / 2, 10);
+
+            lblCountdown.Visible = countdownTime <= 0 ?   false :  true;
         }
 
         /// <summary>
@@ -445,6 +481,11 @@ namespace Pacman_Game
 
             gameTimer.Stop();
 
+            if (colourType == 'R')
+                gameOverSound.Play();
+            else if (colourType == 'G')
+                winnerSound.Play();
+
             GameOverForm gameOverForm = new GameOverForm();
             gameOverForm.ShowGameOver(gameMessage, colourType);
             gameOverForm.CenterToFormRun(this);
@@ -456,6 +497,7 @@ namespace Pacman_Game
                 Close();
 
         }
+
         /// <summary>
         /// Hàm thực hiện xuất hiện form game cùng vị trí với form menu
         /// </summary>
