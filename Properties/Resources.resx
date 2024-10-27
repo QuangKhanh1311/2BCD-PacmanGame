@@ -160,6 +160,21 @@
   <data name="immortal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\immortal.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="coins_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coins_music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gameOverSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gameOverSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="gameSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gameSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="winnerSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\winnerSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="AllDirect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AllDirect.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
