@@ -27,6 +27,7 @@ namespace Pacman_Game
             }
 
         }
+
         private void ConfigurePanel()
         {
             for (int i = 0; i < 4; i++)
@@ -371,21 +372,45 @@ namespace Pacman_Game
 
         private void CharInfor_Click(object sender, EventArgs e)
         {
+            CharInfor.BackColor = Color.Black;
+            HowToPlay.BackColor = Color.Black;
+            HowToWin.BackColor = Color.Black;
+            Mode.BackColor = Color.Black;
+
+            CharInfor.BackColor = Color.Gray;
             showOption(options[0]);
         }
 
         private void HowToPlay_Click(object sender, EventArgs e)
         {
+            CharInfor.BackColor = Color.Black;
+            HowToPlay.BackColor = Color.Black;
+            HowToWin.BackColor = Color.Black;
+            Mode.BackColor = Color.Black;
+
+            HowToPlay.BackColor = Color.Gray;
             showOption(options[1]);
         }
 
         private void HowToWin_Click(object sender, EventArgs e)
         {
+            CharInfor.BackColor = Color.Black;
+            HowToPlay.BackColor = Color.Black;
+            HowToWin.BackColor = Color.Black;
+            Mode.BackColor = Color.Black;
+
+            HowToWin.BackColor = Color.Gray;
             showOption(options[2]);
         }
 
         private void Mode_Click(object sender, EventArgs e)
         {
+            CharInfor.BackColor = Color.Black;
+            HowToPlay.BackColor = Color.Black;
+            HowToWin.BackColor = Color.Black;
+            Mode.BackColor = Color.Black;
+
+            Mode.BackColor = Color.Gray;
             showOption(options[3]);
         }
 

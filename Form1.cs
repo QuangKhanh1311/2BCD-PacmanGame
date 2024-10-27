@@ -335,7 +335,6 @@ namespace Pacman_Game
             // Di chuyển yellow ghost
             //----------------------------
             yellowGhost.Left -= yellowGhostSpeed;
-
             if (yellowGhost.Bounds.IntersectsWith(wallBottom1.Bounds) || yellowGhost.Bounds.IntersectsWith(wallBottom2.Bounds))
                 yellowGhostSpeed = -yellowGhostSpeed;
 
