@@ -232,7 +232,7 @@ namespace Pacman_Game
 
             PictureBox pictureBoxFreeze = new PictureBox();
             pictureBoxFreeze.Size = new Size(20, 20);
-            pictureBoxFreeze.Location = new Point(labelFreeze.Right + 5, txtBoxMove.Bottom + 5);
+            pictureBoxFreeze.Location = new Point(labelFreeze.Right + 5, txtBoxMove.Bottom + 17);
             pictureBoxFreeze.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxFreeze.Image = Properties.Resources.ice;
             options[1].Controls.Add(pictureBoxFreeze);
@@ -271,7 +271,7 @@ namespace Pacman_Game
 
             PictureBox pictureBoxImmor = new PictureBox();
             pictureBoxImmor.Size = new Size(20, 20);
-            pictureBoxImmor.Location = new Point(labelImmor.Right + 5, txtBoxFreeze.Bottom + 5);
+            pictureBoxImmor.Location = new Point(labelImmor.Right + 5, txtBoxFreeze.Bottom + 9);
             pictureBoxImmor.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxImmor.Image = Properties.Resources.immortal;
             options[1].Controls.Add(pictureBoxImmor);
