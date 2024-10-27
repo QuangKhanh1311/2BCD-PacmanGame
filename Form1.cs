@@ -46,7 +46,7 @@ namespace Pacman_Game
             gameSound = new SoundPlayer("gameSound.wav");
             gameOverSound = new SoundPlayer("gameOverSound.wav");
 
-            gameSound.PlayLooping();
+            gameSound.Play();
         }
         private void Form1_Load(object sender, EventArgs e)
         {

@@ -56,7 +56,7 @@
             this.HowToPlay.Name = "HowToPlay";
             this.HowToPlay.Size = new System.Drawing.Size(198, 61);
             this.HowToPlay.TabIndex = 0;
-            this.HowToPlay.Text = "Cách di chuyển";
+            this.HowToPlay.Text = "Cách chơi";
             this.HowToPlay.UseVisualStyleBackColor = false;
             this.HowToPlay.Click += new System.EventHandler(this.HowToPlay_Click);
             // 
