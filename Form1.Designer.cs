@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.txtScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
-            this.immortal1 = new System.Windows.Forms.PictureBox();
             this.ice1 = new System.Windows.Forms.PictureBox();
             this.wallBottom1 = new System.Windows.Forms.PictureBox();
             this.wallBottom2 = new System.Windows.Forms.PictureBox();
@@ -78,7 +77,6 @@
             this.bigCoins2 = new System.Windows.Forms.PictureBox();
             this.bigCoins3 = new System.Windows.Forms.PictureBox();
             this.bigCoins1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.immortal1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom2)).BeginInit();
@@ -141,17 +139,6 @@
             // 
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.MainGameTimer);
-            // 
-            // immortal1
-            // 
-            this.immortal1.Location = new System.Drawing.Point(72, 374);
-            this.immortal1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.immortal1.Name = "immortal1";
-            this.immortal1.Size = new System.Drawing.Size(25, 25);
-            this.immortal1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.immortal1.TabIndex = 8;
-            this.immortal1.TabStop = false;
-            this.immortal1.Tag = "item1";
             // 
             // ice1
             // 
@@ -671,7 +658,6 @@
             this.Controls.Add(this.bigCoins1);
             this.Controls.Add(this.lblCountdown);
             this.Controls.Add(this.immortal);
-            this.Controls.Add(this.immortal1);
             this.Controls.Add(this.ice1);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.wallBottom1);
@@ -723,7 +709,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pacman_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Pacman_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.immortal1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ice1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wallBottom2)).EndInit();
@@ -819,7 +804,6 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.PictureBox pinkGhost;
         private System.Windows.Forms.PictureBox ice1;
-        private System.Windows.Forms.PictureBox immortal1;
         private System.Windows.Forms.PictureBox immortal;
         private System.Windows.Forms.Label lblCountdown;
         private System.Windows.Forms.PictureBox bigCoins2;
