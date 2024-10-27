@@ -89,7 +89,7 @@ namespace Pacman_Game
             labelRedGhost.Text = "Ghost màu đỏ";
             labelRedGhost.Font = new Font("Arial", 12, FontStyle.Bold);
             labelRedGhost.ForeColor = Color.Red;
-            labelRedGhost.Location = new Point(labelPacMan.Left, txtBoxPacMan.Bottom + 5);
+            labelRedGhost.Location = new Point(labelPacMan.Left, txtBoxPacMan.Bottom + 8);
             labelRedGhost.AutoSize = true;
             options[0].Controls.Add(labelRedGhost);
 
@@ -106,7 +106,7 @@ namespace Pacman_Game
             txtBoxRedGhost.BackColor = Color.Black;
             txtBoxRedGhost.ForeColor = Color.White;
             txtBoxRedGhost.Font = new Font("Arial", 11);
-            txtBoxRedGhost.Size = new Size(280, 60);
+            txtBoxRedGhost.Size = new Size(280, 50);
             txtBoxRedGhost.Multiline = true;
             txtBoxRedGhost.BorderStyle = BorderStyle.None;
             txtBoxRedGhost.ReadOnly = true;
@@ -199,17 +199,25 @@ namespace Pacman_Game
             pictureBoxMove.Image = Properties.Resources.AllDirect;
             options[1].Controls.Add(pictureBoxMove);
 
-            TextBox txtBoxMove = new TextBox();
+            RichTextBox txtBoxMove = new RichTextBox();
             txtBoxMove.Text = "Ấn các nút điều hướng như lên: ⬆, xuống: ⬇, trái: ⬅, phải: ⮕ để di chuyển Pac-Man tới hướng mong muốn";
             txtBoxMove.Location = new Point(labelMove.Left + 5, labelMove.Bottom + 5);
             txtBoxMove.BackColor = Color.Black;
             txtBoxMove.ForeColor = Color.White;
             txtBoxMove.Font = new Font("Arial", 11);
-            txtBoxMove.Size = new Size(280, 60);
-            txtBoxMove.Multiline = true;
+            txtBoxMove.Size = new Size(280, 70);
             txtBoxMove.BorderStyle = BorderStyle.None;
             txtBoxMove.ReadOnly = true;
+            txtBoxMove.Multiline = true;
+            txtBoxMove.ScrollBars = RichTextBoxScrollBars.None;
+
+            // Thiết lập khoảng cách dòng
+            txtBoxMove.SelectionStart = 0;
+            txtBoxMove.SelectionLength = txtBoxMove.Text.Length;
+            txtBoxMove.SelectionCharOffset = 5;
+
             options[1].Controls.Add(txtBoxMove);
+
 
             //-----------------------
             //Item đóng băng
@@ -218,7 +226,7 @@ namespace Pacman_Game
             labelFreeze.Text = "Vật phẩm đóng băng";
             labelFreeze.Font = new Font("Arial", 12, FontStyle.Bold);
             labelFreeze.ForeColor = Color.Aqua;
-            labelFreeze.Location = new Point(10, txtBoxMove.Bottom + 5);
+            labelFreeze.Location = new Point(10, txtBoxMove.Bottom + 22);
             labelFreeze.AutoSize = true;
             options[1].Controls.Add(labelFreeze);
 
@@ -229,17 +237,25 @@ namespace Pacman_Game
             pictureBoxFreeze.Image = Properties.Resources.ice;
             options[1].Controls.Add(pictureBoxFreeze);
 
-            TextBox txtBoxFreeze = new TextBox();
+            RichTextBox txtBoxFreeze = new RichTextBox();
             txtBoxFreeze.Text = "Sau khi thu thập sẽ khiến các Ghost bị đóng băng (bất động) trong vòng 3 giây";
             txtBoxFreeze.Location = new Point(labelFreeze.Left + 5, labelFreeze.Bottom + 5);
             txtBoxFreeze.BackColor = Color.Black;
             txtBoxFreeze.ForeColor = Color.White;
             txtBoxFreeze.Font = new Font("Arial", 11);
             txtBoxFreeze.Size = new Size(280, 60);
-            txtBoxFreeze.Multiline = true;
             txtBoxFreeze.BorderStyle = BorderStyle.None;
             txtBoxFreeze.ReadOnly = true;
+            txtBoxFreeze.Multiline = true;
+            txtBoxFreeze.ScrollBars = RichTextBoxScrollBars.None;
+
+            // Thiết lập khoảng cách dòng
+            txtBoxFreeze.SelectionStart = 0;
+            txtBoxFreeze.SelectionLength = txtBoxFreeze.Text.Length;
+            txtBoxFreeze.SelectionCharOffset = 5;
+
             options[1].Controls.Add(txtBoxFreeze);
+
 
             //-----------------------
             //Item bất tử
@@ -249,7 +265,7 @@ namespace Pacman_Game
             labelImmor.Text = "Vật phẩm bất tử";
             labelImmor.Font = new Font("Arial", 12, FontStyle.Bold);
             labelImmor.ForeColor = Color.Aquamarine;
-            labelImmor.Location = new Point(10, txtBoxFreeze.Bottom + 5);
+            labelImmor.Location = new Point(10, txtBoxFreeze.Bottom + 10);
             labelImmor.AutoSize = true;
             options[1].Controls.Add(labelImmor);
 
@@ -260,17 +276,25 @@ namespace Pacman_Game
             pictureBoxImmor.Image = Properties.Resources.immortal;
             options[1].Controls.Add(pictureBoxImmor);
 
-            TextBox txtBoxImmor = new TextBox();
+            RichTextBox txtBoxImmor = new RichTextBox();
             txtBoxImmor.Text = "Sau khi thu thập sẽ khiến nhân vật Pac-Man của người chơi bất khả xâm phạm trong vòng 3 giây";
             txtBoxImmor.Location = new Point(labelImmor.Left + 5, labelImmor.Bottom + 5);
             txtBoxImmor.BackColor = Color.Black;
             txtBoxImmor.ForeColor = Color.White;
             txtBoxImmor.Font = new Font("Arial", 11);
-            txtBoxImmor.Size = new Size(280, 60);
-            txtBoxImmor.Multiline = true;
+            txtBoxImmor.Size = new Size(280, 70);
             txtBoxImmor.BorderStyle = BorderStyle.None;
             txtBoxImmor.ReadOnly = true;
+            txtBoxImmor.Multiline = true;
+            txtBoxImmor.ScrollBars = RichTextBoxScrollBars.None;
+
+            // Thiết lập khoảng cách dòng
+            txtBoxImmor.SelectionStart = 0;
+            txtBoxImmor.SelectionLength = txtBoxImmor.Text.Length;
+            txtBoxImmor.SelectionCharOffset = 5;
+            
             options[1].Controls.Add(txtBoxImmor);
+
         }
 
         //-----------------------
@@ -293,17 +317,26 @@ namespace Pacman_Game
             pictureBoxWin.Image = Properties.Resources.coin;
             options[2].Controls.Add(pictureBoxWin);
 
-            TextBox txtBoxWin = new TextBox();
+            RichTextBox txtBoxWin = new RichTextBox();
             txtBoxWin.Text = "Có tổng cộng 31 đồng xu (coins) nhỏ rải rác khắp map tương ứng với 1 điểm và 3 đồng xu to tương ứng với 5 điểm được canh giữ bởi các Ghost. Mục tiêu của người chơi là kiếm đủ 31 điểm hoặc thu thập hết xu nhỏ để có thể chiến thắng";
             txtBoxWin.Location = new Point(labelWin.Left + 5, labelWin.Bottom + 5);
             txtBoxWin.BackColor = Color.Black;
             txtBoxWin.ForeColor = Color.White;
             txtBoxWin.Font = new Font("Arial", 11);
             txtBoxWin.Size = new Size(280, 150);
-            txtBoxWin.Multiline = true;
             txtBoxWin.BorderStyle = BorderStyle.None;
             txtBoxWin.ReadOnly = true;
+            txtBoxWin.Multiline = true;
+            txtBoxWin.ScrollBars = RichTextBoxScrollBars.None;
+            txtBoxWin.Padding = new Padding(5);
+
+            // Thiết lập khoảng cách dòng
+            txtBoxWin.SelectionStart = 0;
+            txtBoxWin.SelectionLength = txtBoxWin.Text.Length;
+            txtBoxWin.SelectionCharOffset = 5;
+            
             options[2].Controls.Add(txtBoxWin);
+
         }
 
         //-----------------------
@@ -323,16 +356,24 @@ namespace Pacman_Game
             labelBeginner.AutoSize = true;
             options[3].Controls.Add(labelBeginner);
 
-            TextBox txtBoxBeginner = new TextBox();
-            txtBoxBeginner.Text = "Chế độ Tân binh sẽ mang đến trải nghiệm thu thập đồng xu cơ bản, giúp người chơi làm quen với mọi điều trong game. Không có gì phải vội – hãy cẩn thận né tránh các Ghost và thu thập đồng xu để hoàn thành thử thách";
+            RichTextBox txtBoxBeginner = new RichTextBox();
+            txtBoxBeginner.Text = "Chế độ Thử thách sẽ mở ra khi người chơi hoàn thành Chế độ Tân binh! Mọi thứ diễn ra bình thường cho đến khi người chơi đạt 25 điểm. Từ đó, các chướng ngại vật sẽ bắt đầu di chuyển, gây khó khăn cho người chơi trong hành trình thu thập các đồng xu";
             txtBoxBeginner.Location = new Point(labelBeginner.Left + 5, labelBeginner.Bottom + 5);
             txtBoxBeginner.BackColor = Color.Black;
             txtBoxBeginner.ForeColor = Color.White;
             txtBoxBeginner.Font = new Font("Arial", 11);
-            txtBoxBeginner.Size = new Size(280, 120);
-            txtBoxBeginner.Multiline = true;
+            txtBoxBeginner.Size = new Size(280, 150);
             txtBoxBeginner.BorderStyle = BorderStyle.None;
             txtBoxBeginner.ReadOnly = true;
+            txtBoxBeginner.Multiline = true;
+            txtBoxBeginner.ScrollBars = RichTextBoxScrollBars.None;
+            txtBoxBeginner.Padding = new Padding(5);
+
+            // Thiết lập khoảng cách dòng
+            txtBoxBeginner.SelectionStart = 0;
+            txtBoxBeginner.SelectionLength = txtBoxBeginner.Text.Length;
+            txtBoxBeginner.SelectionCharOffset = 3;
+
             options[3].Controls.Add(txtBoxBeginner);
 
             //-----------------------
@@ -343,21 +384,30 @@ namespace Pacman_Game
             labelExpert.Text = "Chế độ Cao thủ";
             labelExpert.Font = new Font("Arial", 12, FontStyle.Bold);
             labelExpert.ForeColor = Color.Yellow;
-            labelExpert.Location = new Point(10, txtBoxBeginner.Bottom + 5);
+            labelExpert.Location = new Point(10, txtBoxBeginner.Bottom + 3);
             labelExpert.AutoSize = true;
             options[3].Controls.Add(labelExpert);
 
-            TextBox txtBoxExpert = new TextBox();
+            RichTextBox txtBoxExpert = new RichTextBox();
             txtBoxExpert.Text = "Chế độ Thử thách sẽ mở ra khi người chơi hoàn thành Chế độ Tân binh! Mọi thứ diễn ra bình thường cho đến khi người chơi đạt 25 điểm. Từ đó, các chướng ngại vật sẽ bắt đầu di chuyển, gây khó khăn cho người chơi trong hành trình thu thập các đồng xu";
             txtBoxExpert.Location = new Point(labelExpert.Left + 5, labelExpert.Bottom + 5);
             txtBoxExpert.BackColor = Color.Black;
             txtBoxExpert.ForeColor = Color.White;
             txtBoxExpert.Font = new Font("Arial", 11);
-            txtBoxExpert.Size = new Size(280, 120);
-            txtBoxExpert.Multiline = true;
+            txtBoxExpert.Size = new Size(280, 150);
             txtBoxExpert.BorderStyle = BorderStyle.None;
             txtBoxExpert.ReadOnly = true;
+            txtBoxExpert.Multiline = true;
+            txtBoxExpert.ScrollBars = RichTextBoxScrollBars.None;
+            txtBoxExpert.Padding = new Padding(5);
+
+            // Thiết lập khoảng cách dòng
+            txtBoxExpert.SelectionStart = 0;
+            txtBoxExpert.SelectionLength = txtBoxExpert.Text.Length;
+            txtBoxExpert.SelectionCharOffset = 3;
+
             options[3].Controls.Add(txtBoxExpert);
+
         }
 
         private void showOption(Panel optionType)
