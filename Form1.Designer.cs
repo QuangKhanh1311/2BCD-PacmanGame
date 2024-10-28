@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameRunForm));
             this.txtScore = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.ice1 = new System.Windows.Forms.PictureBox();
@@ -702,6 +703,7 @@
             this.Controls.Add(this.bigCoins3);
             this.Controls.Add(this.bigCoins2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "GameRunForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
