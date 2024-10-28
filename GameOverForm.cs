@@ -31,12 +31,14 @@ namespace Pacman_Game
         public void ShowGameOver(string gameMessage,char colourType)
         {
             lbGameOver = new Label();
-            lbGameOver.Font = new Font("Arial", 20, FontStyle.Bold);
+            lbGameOver.Font = new Font("Arial", 18, FontStyle.Bold);
             lbGameOver.AutoSize = true;
             if(colourType == 'R')
                 lbGameOver.ForeColor = Color.Red;
             else if(colourType == 'G')
                 lbGameOver.ForeColor = Color.Green;
+            else 
+                lbGameOver.ForeColor = Color.Yellow;
 
             lbGameOver.Text = gameMessage;
             pictureBox1.Controls.Add(lbGameOver);
@@ -52,7 +54,7 @@ namespace Pacman_Game
             lbContinue.Font = new Font("Arial", 14, FontStyle.Regular);
             lbContinue.ForeColor = Color.White; 
             lbContinue.AutoSize = true;
-            lbContinue.Text = "Bạn có muốn chơi tiếp không?";
+            if(colourType != 'Y') lbContinue.Text = "Bạn có muốn chơi tiếp không?";
             pictureBox1.Controls.Add(lbContinue);
 
             lbContinue.Location = new Point(

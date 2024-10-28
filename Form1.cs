@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Threading.Tasks;
 
 namespace Pacman_Game
 {
@@ -17,7 +18,6 @@ namespace Pacman_Game
         private SoundPlayer coinSound;
         private SoundPlayer winnerSound;
         private SoundPlayer itemSound;
-        private SoundPlayer gameSound;
         private SoundPlayer gameOverSound;
 
         private Point redGhostDefaultPosition;
@@ -43,11 +43,10 @@ namespace Pacman_Game
             coinSound = new SoundPlayer(Properties.Resources.coins_music);
             winnerSound = new SoundPlayer(Properties.Resources.winnerSound);
             itemSound = new SoundPlayer(Properties.Resources.itemSound);
-            gameSound = new SoundPlayer(Properties.Resources.gameSound);
             gameOverSound = new SoundPlayer(Properties.Resources.gameOverSound);
 
-            gameSound.Play();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //----------------------------
@@ -170,10 +169,13 @@ namespace Pacman_Game
                             ActivateInvincibility(); 
                         }
                     }
+                    if ((string)x.Tag == "gate")
+                    {
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                            GameOver("YES để reset, NO để thoát", 'Y');
+                    }    
                 }
-
             }
-
             MoveGhosts();
 
             if (playerScore == totalCoins)
@@ -335,7 +337,7 @@ namespace Pacman_Game
             // Di chuyển yellow ghost
             //----------------------------
             yellowGhost.Left -= yellowGhostSpeed;
-            if (yellowGhost.Bounds.IntersectsWith(wallBottom1.Bounds) || yellowGhost.Bounds.IntersectsWith(wallBottom2.Bounds))
+            if ( yellowGhost.Left < 20 || yellowGhost.Left > 500||yellowGhost.Bounds.IntersectsWith(wallBottom1.Bounds) || yellowGhost.Bounds.IntersectsWith(wallBottom2.Bounds))
                 yellowGhostSpeed = -yellowGhostSpeed;
 
             //----------------------------
@@ -480,9 +482,9 @@ namespace Pacman_Game
 
             gameTimer.Stop();
 
-            if (colourType == 'R')
+            if (colourType == 'R' || colourType == 'Y')
                 gameOverSound.Play();
-            else if (colourType == 'G')
+            else if (colourType == 'G' )
                 winnerSound.Play();
 
             GameOverForm gameOverForm = new GameOverForm();
@@ -491,10 +493,9 @@ namespace Pacman_Game
             gameOverForm.ShowDialog();
 
             if (gameOverForm.playAgain)
-                ResetGame();
+                ResetGame(); 
             else
                 Close();
-
         }
 
         /// <summary>
@@ -505,6 +506,7 @@ namespace Pacman_Game
         {
             this.Location = new Point(parentForm.Location.X, parentForm.Location.Y);
         }
+
     }
 
 }

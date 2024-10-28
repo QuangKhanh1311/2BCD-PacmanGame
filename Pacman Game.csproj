@@ -167,5 +167,8 @@
   <ItemGroup>
     <None Include="Resources\AllDirect.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonFrame.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

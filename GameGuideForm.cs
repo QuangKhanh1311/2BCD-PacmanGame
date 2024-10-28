@@ -464,5 +464,19 @@ namespace Pacman_Game
             showOption(options[3]);
         }
 
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            CharInfor.BackColor = Color.Black;
+            HowToPlay.BackColor = Color.Black;
+            HowToWin.BackColor = Color.Black;
+            Mode.BackColor = Color.Black;
+
+            Mode.BackColor = Color.Gray;
+            this.Close();
+        }
+        public void FocusToFormStart(Form parentForm)
+        {
+            this.Location = new Point(parentForm.Location.X, parentForm.Location.Y);
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.HowToPlay = new System.Windows.Forms.Button();
             this.HowToWin = new System.Windows.Forms.Button();
             this.Mode = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // CharInfor
@@ -86,12 +87,26 @@
             this.Mode.UseVisualStyleBackColor = false;
             this.Mode.Click += new System.EventHandler(this.Mode_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Black;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(12, 480);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(111, 38);
+            this.btnExit.TabIndex = 0;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // GameGuideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(682, 553);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.Mode);
             this.Controls.Add(this.HowToWin);
             this.Controls.Add(this.HowToPlay);
@@ -100,7 +115,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "GameGuideForm";
-            this.Text = "GameGuideForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "X";
             this.ResumeLayout(false);
 
         }
@@ -112,5 +128,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button HowToWin;
         private System.Windows.Forms.Button Mode;
+        private System.Windows.Forms.Button btnExit;
     }
 }
