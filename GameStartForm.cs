@@ -39,17 +39,6 @@ namespace Pacman_Game
             gameSound.PlayLooping();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            GameGuideForm gameGuideForm = new GameGuideForm();
-            gameGuideForm.FocusToFormStart(this);
-            gameGuideForm.ShowDialog();
-
-            this.Show();
-        }
-
         private void btnHard_Click(object sender, EventArgs e)
         {
             gameLevel = 1;
@@ -64,6 +53,16 @@ namespace Pacman_Game
             StartGame(0);
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            GameGuideForm gameGuideForm = new GameGuideForm();
+            gameGuideForm.FocusToFormStart(this);
+            gameGuideForm.ShowDialog();
+
+            this.Show();
+        }
     }
 
 

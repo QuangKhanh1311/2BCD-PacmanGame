@@ -170,5 +170,8 @@
   <ItemGroup>
     <None Include="Resources\buttonFrame.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookGuidee.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

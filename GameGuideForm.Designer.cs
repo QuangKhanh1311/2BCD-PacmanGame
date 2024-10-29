@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameGuideForm));
             this.CharInfor = new System.Windows.Forms.Button();
             this.HowToPlay = new System.Windows.Forms.Button();
             this.HowToWin = new System.Windows.Forms.Button();
@@ -113,10 +114,11 @@
             this.Controls.Add(this.CharInfor);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "GameGuideForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "X";
+            this.Text = "Pacman 2BCD";
             this.ResumeLayout(false);
 
         }
